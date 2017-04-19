@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 
-from datetime import datetime
-from datetime import timedelta
+from datetime import datetime, timedelta
 import os
 import dateutil.parser as dateparser
 from decimal import Decimal
 
-from zeep import Client
-from zeep import xsd
-from zeep import helpers
+from zeep import Client, xsd, helpers
 
 import singer
 from singer import utils
