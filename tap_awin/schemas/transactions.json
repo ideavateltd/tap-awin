@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": ["null", "integer"]
+    },
+    "Status": {
+      "type": ["null", "string"]
+    },
+    "Type": {
+      "type": ["null", "string"]
+    },
+    "Ip": {
+      "type": ["null", "string"]
+    },
+    "Paid": {
+      "type": ["null", "boolean"]
+    },
+    "PaymentId": {
+      "type": ["null", "integer"]
+    },
+    "DeclinedReason": {
+      "type": ["null", "string"]
+    },
+    "MerchantId": {
+      "type": ["null", "integer"]
+    },
+    "SaleAmount": {
+      "type": ["null", "object"],
+      "properties": {
+        "Amount": { "type": ["null", "number"] },
+        "Currency": { "type": ["null", "string"]}
+      }
+    },
+    "CommissionAmount": {
+      "type": ["null", "object"],
+      "properties": {
+        "Amount": { "type": ["null", "number"] },
+        "Currency": { "type": ["null", "string"]}
+      }
+    },
+    "ClickDate": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "TransactionDate": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "ValidationDate": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "Clickref": {
+      "type": ["null", "string"]
+    },
+    "SearchSiteName": {
+      "type": ["null", "string"]
+    },
+    "SearchSiteKeyword": {
+      "type": ["null", "string"]
+    },
+    "TransactionParts": {
+      "type": ["null", "array"],
+      "items": {
+        "type": ["null", "object"],
+        "properties": {
+          "CommissionGroupName": { "type": ["null", "string"]},
+          "SaleAmount": {
+            "type": ["null", "object"],
+            "properties": {
+              "Amount": { "type": ["null", "number"] },
+              "Currency": { "type": ["null", "string"]}
+            }
+          },
+          "CommissionAmount": {
+            "type": ["null", "object"],
+            "properties": {
+              "Amount": { "type": ["null", "number"] },
+              "Currency": { "type": ["null", "string"]}
+            }
+          },
+          "Commission": { "type": ["null", "number"]},
+          "CommissionType": { "type": ["null", "string"]}
+        }
+      }
+    },
+    "Extra": {
+      "type": ["null", "string"]
+    }
+  }
+}

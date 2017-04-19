@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": ["null", "integer"]
+    },
+    "Name": {
+      "type": ["null", "string"]
+    },
+    "DisplayUrl": {
+      "type": ["null", "string"]
+    },
+    "ClickThroughUrl": {
+      "type": ["null", "string"]
+    },
+    "PrimaryRegion": {
+      "type": ["null", "object"],
+      "properties": {
+        "Name": { "type": ["null", "string"] },
+        "CountryCode": { "type": ["null", "string"]},
+        "CurrencyCode": { "type": ["null", "string"]}
+      }
+    },
+    "LogoUrl": {
+      "type": ["null", "string"]
+    },
+    "DetailsVersion": {
+      "type": ["null", "integer"]
+    },
+    "DetailsModified": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "FeedVersion": {
+      "type": ["null", "integer"]
+    },
+    "FeedModified": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "Strapline": {
+      "type": ["null", "string"]
+    },
+    "Description": {
+      "type": ["null", "string"]
+    },
+    "ApprovalPercentage": {
+      "type": ["null", "number"]
+    },
+    "Epc": {
+      "type": ["null", "number"]
+    },
+    "ConversionRate": {
+      "type": ["null", "number"]
+    },
+    "ValidationDays": {
+      "type": ["null", "number"]
+    },
+    "AwinGrade": {
+      "type": ["null", "number"]
+    },
+    "CommissionGroups": {
+      "type": ["null", "array"],
+      "items": {
+        "type": ["null", "object"],
+        "properties": {
+          "CommissionType": { "type": ["null", "string"]},
+          "Min": { "type": ["null", "number"]},
+          "Max": { "type": ["null", "number"]}
+        }
+      }
+    },
+    "Sectors": {
+      "type": ["null", "array"],
+      "items": {
+        "type": ["null", "object"],
+        "properties": {
+          "SectorId": { "type": ["null", "integer"]},
+          "SectorName": { "type": ["null", "string"]}
+        }
+      }
+    }
+  }
+}
