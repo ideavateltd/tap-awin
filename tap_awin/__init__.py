@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from tzlocal import get_localzone
 import os
 import dateutil.parser as dateparser
 from decimal import Decimal
@@ -34,11 +35,13 @@ def load_schema(entity):
 def get_start(key, useStartDate=True):
     if key not in STATE:
         if useStartDate:
-            STATE[key] = CONFIG['start_date']
+            d = get_localzone().localize(dateparser.parse(CONFIG['start_date']))
+            STATE[key] = utils.strftime(d)
+            return d
         else:
             return None
-
-    return dateparser.parse(STATE[key])
+    else:
+        return dateparser.parse(STATE[key])
 
 def map_type(x):
     if isinstance(x, Decimal):
@@ -65,7 +68,7 @@ def sync_transactions(client):
     singer.write_schema("transactions", schema, ["Id"])
 
     dateFrom=get_start("transactions") - timedelta(days=CONFIG['validation_window'])
-    dateTo=datetime.now()
+    dateTo=datetime.now(timezone.utc)
 
     start = dateFrom
     offset = 0
