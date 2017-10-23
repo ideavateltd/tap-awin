@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='tap-awin',
-      version='0.0.1',
+      version='0.0.2',
       description='Singer.io tap for extracting data from the Affiliate Window API',
       author='Onedox',
       url='https://github.com/onedox/tap-awin',
