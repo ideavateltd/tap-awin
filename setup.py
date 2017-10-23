@@ -7,7 +7,6 @@ setup(name='tap-awin',
       description='Singer.io tap for extracting data from the Affiliate Window API',
       author='Onedox',
       url='https://github.com/onedox/tap-awin',
-      download_url = 'https://github.com/onedox/tap-awin/archive/0.0.1.tar.gz',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
       py_modules=['tap_awin'],
       install_requires=[
