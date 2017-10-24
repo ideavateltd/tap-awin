@@ -35,7 +35,7 @@ def load_schema(entity):
 def get_start(key, useStartDate=True):
     if key not in STATE:
         if useStartDate:
-            d = get_localzone().localize(dateparser.parse(CONFIG['start_date']))
+            d = utils.strptime_with_tz(CONFIG['start_date'])
             STATE[key] = utils.strftime(d)
             return d
         else:
@@ -79,10 +79,10 @@ def sync_transactions(client):
         end = start + timedelta(days=MAX_DAYS)
         resp = client.service.getTransactionList(dStartDate=start, dEndDate=end, iOffset=offset, iLimit=BATCH_SIZE, sDateType="transaction")
         if (resp.body.getTransactionListCountReturn.iRowsReturned > 0):
-            for t in resp.body.getTransactionListReturn._value_1:
+            for t in resp.body.getTransactionListReturn:
                 t = helpers.serialize_object(t)
                 if t['aTransactionParts'] != None:
-                    t['aTransactionParts'] = t['aTransactionParts']['_value_1']
+                    t['aTransactionParts'] = t['aTransactionParts']
                 singer.write_record("transactions", map_type(t))
                 finalRow = t
         if (offset + resp.body.getTransactionListCountReturn.iRowsReturned) < resp.body.getTransactionListCountReturn.iRowsAvailable:
@@ -103,12 +103,12 @@ def sync_advertisers(client):
     finalRow = None
 
     resp = client.service.getMerchantList(sRelationship="joined")
-    for x in resp.body.getMerchantListReturn._value_1:
+    for x in resp.body.getMerchantListReturn:
         x = helpers.serialize_object(x)
         if x['aCommissionRanges'] != None:
-            x['aCommissionRanges'] = x['aCommissionRanges']['_value_1']
+            x['aCommissionRanges'] = x['aCommissionRanges']
         if x['aSectors'] != None:
-            x['aSectors'] = t['aSectors']['_value_1']
+            x['aSectors'] = t['aSectors']
         if lastModified == None or x['dDetailsModified'] > lastModified:
             singer.write_record("merchants", map_type(x))
             finalRow = x

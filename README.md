@@ -26,7 +26,7 @@ The following keys are required:
   "publisher_id": 123456,
   "api_password": "<<api passeword>>",
   "user_type": "affiliate",
-  "start_date": "2016-01-01",
+  "start_date": "2016-01-01T00:00:00Z",
   "validation_window": 90
 }
 ```

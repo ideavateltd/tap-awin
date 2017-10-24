@@ -11,7 +11,7 @@ setup(name='tap-awin',
       py_modules=['tap_awin'],
       install_requires=[
           'zeep>=1.4.1',
-          'singer-python>=1.4.2',
+          'singer-python>=3.6.3',
           'tzlocal>=1.3',
       ],
       entry_points='''
