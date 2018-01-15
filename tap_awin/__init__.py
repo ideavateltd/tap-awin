@@ -77,6 +77,7 @@ def sync_transactions(client):
     # handle batches by number of days and number of rows
     while start < dateTo:
         end = start + timedelta(days=MAX_DAYS)
+        if (end > dateTo): end = dateTo
         resp = client.service.getTransactionList(dStartDate=start, dEndDate=end, iOffset=offset, iLimit=BATCH_SIZE, sDateType="transaction")
         if (resp.body.getTransactionListCountReturn.iRowsReturned > 0):
             for t in resp.body.getTransactionListReturn:
