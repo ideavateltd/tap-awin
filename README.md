@@ -6,8 +6,9 @@ Author: Hugh Nimmo-Smith (hugh@onedox.com)
 ## Supported APIs and data models
 
 [Affiliate Service v4](http://wiki.awin.com/index.php/Affiliate_Service_API_v4):
- - ```transactions```
- - ```merchants``` for programmes that you are joined to
+
+- `transactions`
+- `merchants` for programmes that you are joined to
 
 ## Limitations
 
@@ -21,7 +22,7 @@ Current limitations include:
 
 The following keys are required:
 
-```
+```json
 {
   "publisher_id": 123456,
   "api_password": "<<api passeword>>",
