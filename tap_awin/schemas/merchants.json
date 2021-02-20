@@ -59,7 +59,7 @@
     "AwinGrade": {
       "type": ["null", "number"]
     },
-    "CommissionGroups": {
+    "CommissionRanges": {
       "type": ["null", "array"],
       "items": {
         "type": ["null", "object"],
